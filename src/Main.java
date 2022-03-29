@@ -1,4 +1,4 @@
-public class Person_and_books {
+public class Main {
     public static void main(String[] args) {
 
         Author author = new Author("Иван", "Иванов");
