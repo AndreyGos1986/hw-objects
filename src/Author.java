@@ -15,4 +15,20 @@ public class Author {
         this.lastName = lastName;
     }
 
+    public String toString() {
+        return "Автор " + getName() + " " + getLastName() + " ";
+    }
+
+    public boolean authorEquals(Author author) {
+
+        if (this.getName() == author.getName() && this.getLastName()==author.getLastName()) {
+            return true;
+        } else
+            return false;
+    }
+    public void getAuthorHashCode () {
+        System.out.println("this.hashCode() = " + this.hashCode());
+    }
 }
+
+
