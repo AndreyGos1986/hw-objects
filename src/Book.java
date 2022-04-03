@@ -27,7 +27,6 @@ public class Book {
         return pubYear;
     }
 
-
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Book)) return false;

@@ -5,7 +5,6 @@ public class Library {
     public Library(int size) {
         this.books = new Book[size];
     }
-
     public void addBook(Book book) {
 
         for (int i = 0; i < books.length; i++) {

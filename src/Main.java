@@ -1,7 +1,6 @@
 public class Main {
     private static final Book[] books = new Book[5];
 
-
     public static void main(String[] args) {
 
         System.out.println("Authors:");
