@@ -1,33 +1,39 @@
-public class Author {
-    String name;
-    String lastName;
+import java.util.Objects;
 
-    public String getName() {
-        return name;
+public class Author {
+    private final String firstName;
+    private final String lastName;
+
+
+    public Author(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public Author(String name, String lastName) {
-        this.name = name;
-        this.lastName = lastName;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return firstName.equals(author.firstName) && lastName.equals(author.lastName);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName);
+    }
+
+    @Override
     public String toString() {
-        return "Автор " + getName() + " " + getLastName() + " ";
-    }
-
-    public boolean authorEquals(Author author) {
-
-        if (this.getName() == author.getName() && this.getLastName()==author.getLastName()) {
-            return true;
-        } else
-            return false;
-    }
-    public void getAuthorHashCode () {
-        System.out.println("this.hashCode() = " + this.hashCode());
+        return "Author" + " " + firstName + " " + lastName;
     }
 }
 

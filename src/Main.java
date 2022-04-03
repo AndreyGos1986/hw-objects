@@ -1,28 +1,40 @@
 public class Main {
+    private static final Book[] books = new Book[5];
+
+
     public static void main(String[] args) {
 
-        Author author = new Author("Иван", "Иванов");
-        Author author2 = new Author("Антип", "Сидоров");
+        System.out.println("Authors:");
+        Author stephenKing = new Author("Stephen", "King");
+        Author stephenKing2 = new Author("Stephen", "King");
+        Author levTolstoy = new Author("Lev", "Tolstoy");
+        System.out.println("Author copies equal: " + stephenKing.equals(stephenKing2));
+        System.out.println("Author copies equal by hashCode: " + (stephenKing.hashCode() == stephenKing2.hashCode()));
+        System.out.println("Authors equal: " + stephenKing.equals(levTolstoy));
+        System.out.println("Authors equal by hashCode: " + (stephenKing.hashCode() == levTolstoy.hashCode()));
 
-        Book horror = new Book("Ужасные Ужасы ", author, 1955);
-        Book novel = new Book("Романтичный роман", author2, 1974);
-        Book novel2 = new Book("Антиромантичный роман", author2, 1965);
+        System.out.println(stephenKing);
+        System.out.println(levTolstoy);
 
-        Author author3 = author;
-        Book someNovel = novel;
+        System.out.println("==============================");
 
-        System.out.println(horror.toString());//вызов переопределенного метода toString
-        System.out.println(novel.toString());//вызов переопределенного метода toString
+        System.out.println("Books:");
+        Book theStand = new Book("The Stand", stephenKing, 1976);
+        Book theStand2 = new Book("The Stand", stephenKing, 1976);
+        Book warAndPeace = new Book("War and Peace", levTolstoy, 1869);
+        System.out.println("Book copies equal: " + theStand.equals(theStand2));
+        System.out.println("Book copies equal by hashCode: " + (theStand.hashCode() == theStand2.hashCode()));
+        System.out.println("Books equal: " + theStand.equals(warAndPeace));
+        System.out.println("Books equal by hashCode: " + (theStand.hashCode() == warAndPeace.hashCode()));
+        System.out.println(theStand);
+        System.out.println(warAndPeace);
 
-        System.out.println(novel2.booksEquals(novel)); ////вызов переопределенного метода equals
-        System.out.println("novel.booksEquals(someNovel) = " + novel.booksEquals(someNovel));////вызов переопределенного метода equals
+        System.out.println("==============================");
 
-        novel.getBookHashCode();//вызов переопределенного метода hashCode для класса Books
-        System.out.println("novel.hashCode() = " + novel.hashCode()); // Вызов стандартного метода для сравнения
-        author.getAuthorHashCode();//вызов переопределенного метода hashCode для класса Author
-        System.out.println("author.hashCode() = " + author.hashCode());
-
-
-
+        Library library = new Library(2);
+        library.addBook(theStand);
+        library.addBook(warAndPeace);
+        System.out.println(library);
     }
+
 }
